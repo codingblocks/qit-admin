@@ -5,6 +5,9 @@ metadata:
   labels:
     app: qit-admin-client
 spec:
+  selector:
+    matchLabels:
+      app: qit-admin-client
   template:
     metadata:
       labels:
