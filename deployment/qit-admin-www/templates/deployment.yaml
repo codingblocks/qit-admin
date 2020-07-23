@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qit-admin-www
+  labels:
+    app: qit
+spec:
+  template:
+    metadata:
+      labels:
+        app: qit
+    spec:
+      containers:
+        - name: qit-admin-www
+          image: thejz/qit-admin-www
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
