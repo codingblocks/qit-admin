@@ -3,12 +3,12 @@ kind: Deployment
 metadata:
   name: qit-admin-www
   labels:
-    app: qit
+    app: qit-admin-client
 spec:
   template:
     metadata:
       labels:
-        app: qit
+        app: qit-admin-client
     spec:
       containers:
         - name: qit-admin-www
