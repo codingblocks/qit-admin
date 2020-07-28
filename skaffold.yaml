@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta5
+kind: Config
+metadata:
+  name: qit-admin
+build:
+  artifacts:
+  - image: thejz/qit-admin-www
+    docker:
+      dockerfile: dockerfile.www
+deploy:
+  kubectl:
+    manifests:
+    - deployment/qit-admin-www/templates/deployment.yaml
+    - deployment/qit-admin-www/templates/service.yaml
