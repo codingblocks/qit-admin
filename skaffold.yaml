@@ -7,8 +7,13 @@ build:
   - image: thejz/qit-admin-www
     docker:
       dockerfile: dockerfile.www
+  - image: thejz/qit-admin-api
+    docker:
+      dockerfile: dockerfile.api
 deploy:
   kubectl:
     manifests:
     - deployment/qit-admin-www/templates/deployment.yaml
     - deployment/qit-admin-www/templates/service.yaml
+    - deployment/qit-admin-api/templates/deployment.yaml
+    - deployment/qit-admin-api/templates/service.yaml

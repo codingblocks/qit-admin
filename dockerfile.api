@@ -1,0 +1,18 @@
+## BUILD TIME ##
+
+FROM maven:3.6.3-adoptopenjdk-11-openj9 as build
+
+WORKDIR /app
+
+COPY ./api/pom.xml ./pom.xml
+COPY ./api/src ./srsc
+RUN mvn package
+
+## RUN TIME ##
+
+FROM adoptopenjdk/openjdk11:jre-11.0.8_10
+
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar .
+ENTRYPOINT ["java","-jar","/app/app.jar"]
